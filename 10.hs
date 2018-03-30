@@ -11,9 +11,5 @@ prime n | n < 1 = error "not a positive integer"
 primes :: [Integer]
 primes = 2 : filter prime [3..]
 
--- primes = sieve [2..] where sieve (x:xs) = x : sieve [y | y <- xs, rem y x /= 0]
-
-main :: IO ()
 main = do
-  print $ primes !! 10000
-
+  putStrLn $ show $ sum $ takeWhile (< 2000000) primes
